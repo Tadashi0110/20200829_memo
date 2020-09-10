@@ -1,0 +1,66 @@
+table.ui-datepicker-calendar {
+    background-color: gainsboro;
+}
+.ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+    background-color: gainsboro;
+}
+/* table#list {
+    display: flex;
+} */
+html {
+    background-color: darkblue;
+}
+h1 {
+    color: antiquewhite;
+    text-align: center;
+    font-family: cursive;
+}
+p {
+    text-align: center;
+    color: antiquewhite;
+    font-family: cursive;
+}
+.col-xs-3 {
+    text-align: center;
+}
+element.style {
+    font-family: cursive;
+}
+button#submit {
+    font-family: cursive;
+}
+button#aclear {
+    font-family: cursive;
+}
+button#clear {
+    font-family: cursive;
+}
+span.ui-icon.ui-icon-circle-triangle-e {
+    color: blue;
+}
+span.ui-icon.ui-icon-circle-triangle-w {
+    color: blueviolet;
+}
+th {
+    /* padding-left: 650px; */
+    padding-top: 10px;
+    color: antiquewhite;
+    font-family: cursive;
+}
+
+/* .ui-datepicker-header.ui-widget-header.ui-helper-clearfix.ui-corner-all {
+    width: 200px;
+} */
+input#datepicker{
+
+}
+span {
+    color: slategrey;
+}
+span.ui-datepicker-month {
+    font-family: cursive;
+}
+
+span.ui-datepicker-year {
+    font-family: cursive;
+}

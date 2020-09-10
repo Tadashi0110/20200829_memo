@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>memoma</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Datepicker - Default functionality</title>
+  <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
+  <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+　<link rel="stylesheet" href="css/sample.css">
+  </head>
+
+  <body>
+    <div class="container">
+        <div class="header">
+            <h1>To Do List</h1>
+            <h2 id="today"></h2>
+            <hr>
+        </div>
+
+        <div class="todolist_unit" id="todolist_unit">
+
+        </div>
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-9">
+                    <p>Date: <input type="text" id="datepicker"></p>
+                    <p>ToDo: <input type="text" id="memo"></p>
+                    <!-- <input type="text" id="input1" class="form-control" placeholder="Todoリストを追加してください"> -->
+                </div>
+                <div class="col-xs-3">
+                    <button id="submit">Add Todo</button>
+                    <button id="aclear">All Clear</button>
+                    <!-- <button id="clear">Clear</button> -->
+                </div>
+               
+            </div>
+        </div>
+        <table id="list" >
+            <!-- ここに追加データが挿入される -->
+        
+        </table>
+    </div>
+
+
+
+    </table>
+
+<script>
+//0.日付選択
+ $( function() {
+    $( "#datepicker" ).datepicker();
+  } );
+
+//1.保存 クリックイベント
+$("#submit").on("click",function(){
+    // 空欄ならアラートを出す
+    if(document.querySelector('#memo').value == "" ) {
+    alert("todo記入忘れてるよー");   
+    } else {
+    // 日付とtodoを保存
+    const key = $("#datepicker").val();
+    const memo = $("#memo").val();
+    localStorage.setItem(key,memo);
+    const todo='<input type="checkbox">'+key+memo;
+    const html = '<tr><th>'+todo+'</th></tr>';
+    $("#list").append(html);
+    }
+});
+    
+//2.clear クリックイベント
+$("#aclear").on("click",function(){
+    localStorage.clear();
+    $("#list").empty();
+});
+
+// $('#clear').on("click", function() {
+//     $('#list').has('input[type=checkbox]:checked').remove();
+//   });
+
+
+//3.ページ読み込み：保存データ取得表示
+for(let i=0; i<localStorage.length; i++){
+    const key   = localStorage.key(i);
+    const memo = localStorage.getItem(key);
+    const todo='<input type="checkbox">'+key+memo;
+    const html = '<tr><th>'+todo+'</th></tr>';
+    $("#list").append(html);
+}
+
+// ４.checkboxをチェックするとテキストボックスをグレーアウトし、罫線を入れる
+$("#memo").on("change", "p input:checkbox", function () {
+    alert("OK");
+    // var index = $('p input:checkbox').index(this);
+    // if($(this).is(':checked')) {
+    // $("p input:text").eq(index).attr("disabled", "disabled").css("text-decoration", "line-through");
+    // } else {
+    // $("p input:text").eq(index).attr("disabled", false).css("text-decoration", "");
+    // }
+ });
+
+</script>
+</body>
+</html>
